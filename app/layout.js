@@ -1,4 +1,5 @@
 import { Cormorant} from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 const cormorant = Cormorant({subsets: ["latin"]});
@@ -9,6 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={cormorant.className}
@@ -16,5 +18,6 @@ export default function RootLayout({ children }) {
         {children}
       </body>
     </html>
+    </ClerkProvider>
   );
 }
